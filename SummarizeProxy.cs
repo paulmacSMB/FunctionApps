@@ -24,7 +24,7 @@ public class SummarizeProxy
         var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
         var forwardRequest = new HttpRequestMessage(HttpMethod.Post, targetUrl);
         forwardRequest.Content = new StringContent(requestBody, System.Text.Encoding.UTF8, "application/json");
-        forwardRequest.Headers.Add("x-functions-key", functionKey); // secure your backend
+        forwardRequest.Headers.Add("x-functions-key", functionKey); 
 
         var response = await httpClient.SendAsync(forwardRequest);
 
